@@ -26,32 +26,20 @@ contact form needs. Buy **only the domain** at Namecheap — skip their hosting.
 
 ---
 
-## Step 1 — Put the code on GitHub
+## Step 1 — Code on GitHub ✅ DONE
 
-Git is already initialised and all 68 files are staged. `.env.local` is
-excluded, so your Resend key stays off GitHub.
+Already pushed to <https://github.com/Ahsansattar001/Porfolio> on the `master`
+branch. `.env.local` is excluded, so your Resend key is not on GitHub.
 
-Set your identity once (use your real name and email):
-
-```bash
-git config --global user.name "Ahsan Sattar"
-git config --global user.email "ahsansattar8586@gmail.com"
-```
-
-Then commit:
+For future changes:
 
 ```bash
-git commit -m "Portfolio site"
+git add -A
+git commit -m "what you changed"
+git push
 ```
 
-Create an empty repo at <https://github.com/new> (name it `portfolio`, do NOT
-add a README), then:
-
-```bash
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/portfolio.git
-git push -u origin main
-```
+Every push redeploys the live site automatically once Step 2 is done.
 
 ## Step 2 — Deploy on Vercel
 
