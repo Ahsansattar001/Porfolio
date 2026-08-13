@@ -8,6 +8,7 @@ import { STACK } from '@/lib/content';
  * chips underneath come from STACK.
  */
 export default function About() {
+  
   return (
     <section className="sec" id="about">
       <div className="wrap about-grid">
