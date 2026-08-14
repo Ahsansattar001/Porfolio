@@ -127,7 +127,9 @@ export default function Nav({ links, current }: NavProps) {
       <header className={`nav${scrolled ? ' scrolled' : ''}${hide ? ' hide' : ''}`} id="nav">
         <Link href="/" className="logo" aria-label="Ahsan Sattar — home">
           <span className="dot" />
-          Ahsan <i>Sattar</i>
+          <img src="/img/logo-light.png" alt="Ahsan Sattar" className="logo-img light" />
+          <img src="/img/logo-dark.png" alt="Ahsan Sattar" className="logo-img dark" />
+          <span className="text">Ahsan <i>Sattar</i></span>
         </Link>
 
         <nav aria-label="Primary">

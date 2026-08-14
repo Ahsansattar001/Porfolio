@@ -253,6 +253,15 @@ section { scroll-margin-top: calc(var(--nav-h) + 20px); }
 .logo .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex: none; }
 .logo i { font-style: normal; color: var(--accent); }
 
+/* Logo image handling: show theme-appropriate image, keep text fallback */
+.logo img.logo-img { display: none; height: 28px; object-fit: contain; }
+.logo .text { display: inline-flex; align-items: center; gap: 6px; }
+:root .logo img.logo-img.light { display: inline-block; }
+:root[data-theme="dark"] .logo img.logo-img.light { display: none; }
+:root[data-theme="dark"] .logo img.logo-img.dark { display: inline-block; }
+:root .logo img.logo-img.dark { display: none; }
+
+
 .nav-links { display: flex; gap: 30px; align-items: center; list-style: none; }
 .nav-links a {
   font-size: var(--fs-sm); font-weight: 500; color: var(--muted);

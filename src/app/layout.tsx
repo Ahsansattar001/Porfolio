@@ -106,6 +106,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${interTight.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* Theme-aware favicons: place files in public/img/ */}
+        <link rel="icon" href="/img/favicon-light.png" media="(prefers-color-scheme: light)" />
+        <link rel="icon" href="/img/favicon-dark.png" media="(prefers-color-scheme: dark)" />
+        <link rel="apple-touch-icon" href="/img/logo-light.png" />
       </head>
       {/* suppressHydrationWarning: the inline script above and <Preloader/> both
           add `loaded` to <body> before React hydrates, so the server HTML and
