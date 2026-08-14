@@ -463,7 +463,7 @@ export default function ContactForm() {
                 <b>{status.title}</b>
                 <span className="body">{status.body}</span>
                 {status.action && (
-                  <a className="status-link" href={status.action.href}>
+                  <a className="status-link" href={status.action.href} target="_blank" rel="noopener noreferrer">
                     {status.action.label}
                   </a>
                 )}
