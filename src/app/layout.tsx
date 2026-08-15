@@ -59,14 +59,12 @@ export const metadata: Metadata = {
     description: '150+ projects delivered across 7+ countries. Custom Shopify store design and development.',
     images: ['/img/og-cover.webp'],
   },
-  icons: {
-    icon: [
-      {
-        url:
-          "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d4ed8'/%3E%3Ctext x='32' y='43' font-family='Inter,Arial' font-size='34' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E",
-      },
-    ],
-  },
+  /* No `icons` key on purpose. Next's file convention picks up
+     src/app/icon.png and src/app/apple-icon.png automatically and emits the
+     right <link> tags with cache-busting hashes. Declaring them here as well
+     would override that — which is exactly what broke the favicon before:
+     the entries pointed at /img/favicon-light.png and /img/favicon-dark.png,
+     and neither file existed. */
 };
 
 export const viewport: Viewport = {
@@ -106,10 +104,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${inter.variable} ${interTight.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        {/* Theme-aware favicons: place files in public/img/ */}
-        <link rel="icon" href="/img/favicon-light.png" media="(prefers-color-scheme: light)" />
-        <link rel="icon" href="/img/favicon-dark.png" media="(prefers-color-scheme: dark)" />
-        <link rel="apple-touch-icon" href="/img/logo-light.png" />
+        {/* Favicon links are NOT hand-written here — src/app/icon.png and
+            src/app/apple-icon.png are picked up by Next automatically. */}
       </head>
       {/* suppressHydrationWarning: the inline script above and <Preloader/> both
           add `loaded` to <body> before React hydrates, so the server HTML and

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import ThemeToggle from './ThemeToggle';
@@ -125,11 +126,27 @@ export default function Nav({ links, current }: NavProps) {
   return (
     <>
       <header className={`nav${scrolled ? ' scrolled' : ''}${hide ? ' hide' : ''}`} id="nav">
+        {/* Two files, swapped by CSS on [data-theme] — the dark-mode artwork is
+            white and would vanish on a light header. Both are `priority` because
+            the logo is above the fold; only one is ever visible. */}
         <Link href="/" className="logo" aria-label="Ahsan Sattar — home">
-          <span className="dot" />
-          <img src="/img/logo-light.png" alt="Ahsan Sattar" className="logo-img light" />
-          <img src="/img/logo-dark.png" alt="Ahsan Sattar" className="logo-img dark" />
-          <span className="text">Ahsan <i>Sattar</i></span>
+          <Image
+            src="/img/logo-light.webp"
+            alt="Ahsan Sattar — Shopify Expert and Frontend Developer"
+            width={752}
+            height={160}
+            className="logo-img logo-light"
+            priority
+          />
+          <Image
+            src="/img/logo-dark.webp"
+            alt=""
+            aria-hidden="true"
+            width={736}
+            height={160}
+            className="logo-img logo-dark"
+            priority
+          />
         </Link>
 
         <nav aria-label="Primary">
