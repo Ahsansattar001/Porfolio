@@ -200,6 +200,15 @@ export default function Nav({ links, current }: NavProps) {
       </header>
 
       <nav className={`menu${open ? ' open' : ''}`} id="menu" aria-label="Mobile">
+        {/* The drawer sits above the header (z-index 1100 vs 1000), so the
+            burger that opened it is covered and cannot be used to close it.
+            This gives the drawer its own way out, alongside Escape. */}
+        <button className="menu-close" type="button" aria-label="Close menu" onClick={close}>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+
         {menuItems.map((link, i) => {
           // Staggered entrance, exactly the delays main.js wrote inline.
           const style = { transitionDelay: `${(0.05 + i * 0.05).toFixed(2)}s` };
