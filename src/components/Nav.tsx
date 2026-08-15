@@ -126,6 +126,11 @@ export default function Nav({ links, current }: NavProps) {
   return (
     <>
       <header className={`nav${scrolled ? ' scrolled' : ''}${hide ? ' hide' : ''}`} id="nav">
+        {/* The bar itself stays full-bleed so its background and bottom border
+            reach both screen edges — but the contents sit in the same 1200px
+            container every section uses, so the logo lines up with the copy
+            below it instead of hugging the viewport. */}
+        <div className="nav-inner">
         {/* Two files, swapped by CSS on [data-theme] — the dark-mode artwork is
             white and would vanish on a light header. Both are `priority` because
             the logo is above the fold; only one is ever visible. */}
@@ -190,6 +195,7 @@ export default function Nav({ links, current }: NavProps) {
             <span />
             <span />
           </button>
+        </div>
         </div>
       </header>
 

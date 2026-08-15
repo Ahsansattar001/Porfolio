@@ -239,7 +239,9 @@ export default function ContactForm() {
               id="name"
               name="name"
               autoComplete="name"
-              placeholder="Ahsan Sattar"
+              /* An example name here read as if the field were pre-filled with
+                 Ahsan's own details. An instruction is clearer to a visitor. */
+              placeholder="Write your name"
               maxLength={80}
               required
               value={values.name}
@@ -287,7 +289,9 @@ export default function ContactForm() {
               id="phone"
               name="phone"
               autoComplete="tel"
-              placeholder="+92 300 0000000"
+              /* Kept short — the label already says "Phone / WhatsApp", and a
+                 longer string clips inside the half-width field. */
+              placeholder="Your number"
               maxLength={30}
               value={values.phone}
               ref={phoneRef}
@@ -309,6 +313,7 @@ export default function ContactForm() {
               type="text"
               id="website"
               name="website"
+              autoComplete="url"
               inputMode="url"
               placeholder="yourstore.com"
               maxLength={150}
