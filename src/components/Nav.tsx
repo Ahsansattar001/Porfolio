@@ -119,9 +119,9 @@ export default function Nav({ links, current }: NavProps) {
 
   /* The mobile menu repeats the primary links and always ends on Contact —
      unless the caller already passes a link that goes there. */
-  const menuItems: NavItem[] = links.some((l) => l.href === '/contact')
+  const menuItems: NavItem[] = links.some((l) => l.href === '#contact')
     ? [...links]
-    : [...links, { href: '/contact', label: 'Contact' }];
+    : [...links, { href: '#contact', label: 'Contact' }];
 
   return (
     <>
@@ -179,9 +179,9 @@ export default function Nav({ links, current }: NavProps) {
 
         <div className="nav-right">
           <ThemeToggle />
-          <Link className="nav-cta" href="/contact">
+          <a className="nav-cta" href="#contact">
             Start a project
-          </Link>
+          </a>
           <button
             className={`burger${open ? ' open' : ''}`}
             id="burger"

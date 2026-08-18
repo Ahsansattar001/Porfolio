@@ -592,14 +592,18 @@ h2.big { font-size: var(--fs-h2); max-width: 20ch; }
 .marquee-track { display: flex; width: max-content; animation: mq 42s linear infinite; }
 .marquee:hover .marquee-track { animation-play-state: paused; }
 @keyframes mq { to { transform: translateX(-50%); } }
+/* gap here sits BETWEEN the words of each phrase ("Bundle" / "builders"),
+   because flex makes each of them its own item and strips the literal space.
+   26px read as two unrelated words, so it is now roughly a word-space and the
+   separator dot gets its breathing room back via margin instead. */
 .mq-item {
-  display: flex; align-items: center; gap: 26px;
+  display: flex; align-items: center; gap: 6px;
   padding: 0 26px; white-space: nowrap;
   font-family: var(--font-head); font-size: 18px; font-weight: 500;
   letter-spacing: -.015em; color: var(--muted);
 }
 .mq-item i { font-style: normal; color: var(--ink); }
-.mq-item::after { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); opacity: .7; }
+.mq-item::after { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--accent); opacity: .7; margin-left: 20px; }
 
 /* --------------------------------------------------------------------------
    8. SUMMARY CARD + STATS
@@ -993,9 +997,14 @@ h2.big { font-size: var(--fs-h2); max-width: 20ch; }
 .contact { position: relative; overflow: hidden; text-align: center; background: var(--bg-soft); border-top: 1px solid var(--line); }
 .contact .overline { justify-content: center; }
 .contact h2 { font-size: var(--fs-h2); max-width: 22ch; margin: 0 auto 18px; }
-.contact > .wrap > .reveal > p { color: var(--muted); max-width: 56ch; margin: 0 auto 30px; }
+/* :not(.contact-mini) matters — this selector is more specific than
+   `.contact-mini` and its `margin: 0 auto 30px` was silently zeroing the top
+   margin of the "Or reach me directly" line, jamming it under the buttons. */
+.contact > .wrap > .reveal > p:not(.contact-mini) { color: var(--muted); max-width: 56ch; margin: 0 auto 30px; }
 .contact-cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.contact-mini { margin-top: 28px; font-size: var(--fs-sm); color: var(--dim); }
+/* sat too close under the buttons — this line needs room to read as a separate
+   thought rather than a caption attached to them */
+.contact-mini { margin-top: 48px; font-size: var(--fs-sm); color: var(--dim); }
 .contact-mini a { color: var(--muted); border-bottom: 1px solid var(--line-strong); padding-bottom: 2px; transition: .25s; }
 .contact-mini a:hover { color: var(--accent); border-color: var(--accent); }
 .orbit {

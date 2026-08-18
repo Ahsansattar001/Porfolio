@@ -9,9 +9,9 @@ import { SITE } from '@/lib/site';
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!SITE.url) return [];
 
-  const now = new Date();
+  /* Single landing page — the contact form lives at /#contact, not on a
+     route of its own, so there is nothing else to list. */
   return [
-    { url: `${SITE.url}/`, lastModified: now, changeFrequency: 'monthly', priority: 1 },
-    { url: `${SITE.url}/contact`, lastModified: now, changeFrequency: 'yearly', priority: 0.8 },
+    { url: `${SITE.url}/`, lastModified: new Date(), changeFrequency: 'monthly', priority: 1 },
   ];
 }

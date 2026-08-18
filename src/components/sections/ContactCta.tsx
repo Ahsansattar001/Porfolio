@@ -1,15 +1,17 @@
-import Link from 'next/link';
 import Reveal from '@/components/Reveal';
 import { SITE, mailto } from '@/lib/site';
 
 /**
- * ContactCta — port of `<section class="sec contact" id="contact">`.
+ * ContactCta — the lead-in that sits directly above the contact form.
+ *
+ * The `id="contact"` anchor moved to <Contact> when the form came onto the
+ * homepage, so the buttons here scroll down to it rather than to a second page.
  * The stylesheet targets `.contact > .wrap > .reveal > p`, so the paragraph has
  * to stay a direct child of the revealed wrapper.
  */
 export default function ContactCta() {
   return (
-    <section className="sec contact" id="contact">
+    <section className="sec contact">
       <div className="orbit" aria-hidden="true" />
       <div className="wrap">
         <Reveal>
@@ -23,9 +25,10 @@ export default function ContactCta() {
             probably already built it for someone else.
           </p>
           <div className="contact-cta">
-            <Link className="btn" href="/contact">
-              Open the contact form <span className="arr">↗</span>
-            </Link>
+            {/* scrolls to the form further down, rather than to a second page */}
+            <a className="btn" href="#contact">
+              Open the contact form <span className="arr">↓</span>
+            </a>
             <a
               className="btn btn-ghost"
               href={SITE.socials.whatsapp}

@@ -52,7 +52,7 @@ export default function Hero() {
           <p className="hero-over">
             Shopify Expert <span className="sep" aria-hidden="true" />
             Frontend Developer <span className="sep" aria-hidden="true" />
-            3+ Years <b>★ Employee of the Year 2026</b>
+            3+ Years of Experience <b>★ Employee of the Year 2026</b>
           </p>
 
           <h1>
@@ -82,9 +82,9 @@ export default function Hero() {
             <Link href="/#work" className="btn">
               View selected work <span className="arr">↓</span>
             </Link>
-            <Link href="/contact" className="btn btn-ghost">
-              Start a project <span className="arr">↗</span>
-            </Link>
+            <a href="#contact" className="btn btn-ghost">
+              Start a project <span className="arr">↓</span>
+            </a>
           </div>
 
           <div className="hero-meta">

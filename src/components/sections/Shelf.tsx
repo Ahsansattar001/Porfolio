@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import Reveal from '@/components/Reveal';
 import { PROJECTS } from '@/lib/content';
 
@@ -20,7 +19,7 @@ const FALLBACK_INITIAL: Record<string, string> = {
 
 export default function Shelf() {
   return (
-    <section className="sec" style={{ paddingTop: 0 }}>
+    <section className="sec">
       <div className="wrap">
         <Reveal className="sec-head">
           <div>
@@ -75,9 +74,9 @@ export default function Shelf() {
           ))}
 
           <div className="shelf-more">
-            <Link href="/contact" className="btn btn-ghost">
-              Your store could be no. 17 <span className="arr">↗</span>
-            </Link>
+            <a href="#contact" className="btn btn-ghost">
+              Your store could be no. 17 <span className="arr">↓</span>
+            </a>
           </div>
         </div>
       </div>

@@ -44,7 +44,7 @@ function Feature({ text }: { text: string }) {
 
 export default function Work() {
   return (
-    <section className="sec" id="work" style={{ paddingTop: 0 }}>
+    <section className="sec" id="work">
       <div className="wrap">
         <Reveal className="sec-head">
           <div>

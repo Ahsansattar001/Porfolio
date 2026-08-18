@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Reveal from '@/components/Reveal';
 import { TIMELINE } from '@/lib/content';
 
@@ -25,9 +24,9 @@ export default function Journey() {
             Shopify expert, and a trophy with my name on it. The next line on this timeline is
             reserved for your project.
           </p>
-          <Link className="case-link" href="/contact">
-            Start yours <span aria-hidden="true">↗</span>
-          </Link>
+          <a className="case-link" href="#contact">
+            Start yours <span aria-hidden="true">↓</span>
+          </a>
         </Reveal>
 
         <Reveal delay={0.1}>

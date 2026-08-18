@@ -13,7 +13,7 @@ const LINKS = [
   { href: '/#services', label: 'Services' },
   { href: '/#tools', label: 'Tools' },
   { href: '/#reviews', label: 'Reviews' },
-  { href: '/contact', label: 'Contact' },
+  { href: '#contact', label: 'Contact' },
 ];
 
 const SOCIALS = [

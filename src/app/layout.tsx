@@ -36,7 +36,7 @@ const metadataBase = SITE.url
 export const metadata: Metadata = {
   metadataBase,
   title: {
-    default: 'Shopify Expert & Frontend Developer | Ahsan Sattar',
+    default: 'Ahsan Sattar — Shopify Expert & Frontend Developer',
     template: '%s | Ahsan Sattar',
   },
   description:
@@ -48,14 +48,14 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     siteName: 'Ahsan Sattar — Shopify Expert',
-    title: 'Shopify Expert & Frontend Developer | Ahsan Sattar',
+    title: 'Ahsan Sattar — Shopify Expert & Frontend Developer',
     description:
       '150+ projects delivered across 7+ countries. Custom Shopify store design, redesigns and conversion features coded into your theme.',
     images: [{ url: '/img/og-cover.webp', width: 1200, height: 630, alt: 'Ahsan Sattar — Shopify Expert' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shopify Expert & Frontend Developer | Ahsan Sattar',
+    title: 'Ahsan Sattar — Shopify Expert & Frontend Developer',
     description: '150+ projects delivered across 7+ countries. Custom Shopify store design and development.',
     images: ['/img/og-cover.webp'],
   },
