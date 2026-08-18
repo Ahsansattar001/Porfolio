@@ -363,7 +363,10 @@ section { scroll-margin-top: calc(var(--nav-h) + 20px); }
    5. SHARED LAYOUT
    -------------------------------------------------------------------------- */
 .wrap { max-width: 1200px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 48px); }
-.sec { padding: clamp(72px, 9vw, 120px) 0; }
+/* Every section pads top AND bottom, so adjacent sections stack their
+   padding: this value is roughly HALF the visible gap between two
+   sections. At 120px the gap was ~240px, which read as a dead zone. */
+.sec { padding: clamp(52px, 5.5vw, 78px) 0; }
 
 .overline {
   font-size: var(--fs-label); font-weight: 600;
@@ -631,6 +634,11 @@ h2.big { font-size: var(--fs-h2); max-width: 20ch; }
   padding: 9px 0; border-bottom: 1px solid var(--line); color: var(--muted);
 }
 .rc-row b { color: var(--ink); font-weight: 500; font-variant-numeric: tabular-nums; }
+/* The last row's border sat directly above .rc-total's own border-top, drawing
+   two lines with a gap between them. `:last-of-type` does NOT work here —
+   .rc-total is a div too, so no .rc-row is ever the last div. Match the row
+   that is immediately followed by the total instead. */
+.rc-row:has(+ .rc-total) { border-bottom: 0; }
 .rc-total {
   display: flex; justify-content: space-between; align-items: center;
   margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line-strong);
@@ -863,7 +871,10 @@ h2.big { font-size: var(--fs-h2); max-width: 20ch; }
 .journey-grid {
   display: grid; grid-template-columns: .9fr 1.1fr;
   gap: clamp(40px, 6vw, 84px); align-items: start;
-  margin-top: clamp(64px, 8vw, 110px);
+  /* no margin-top: this used to be the second half of the About section and
+     needed separating from it. It is its own <section> now, so the margin was
+     stacking on top of the section padding and making one gap 110px larger
+     than every other. */
 }
 .journey-head { position: sticky; top: calc(var(--nav-h) + 34px); }
 .journey-title { font-size: 30px; margin-bottom: 16px; }
